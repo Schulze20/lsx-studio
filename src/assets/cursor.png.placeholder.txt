@@ -1,0 +1,1 @@
+PLACEHOLDER: add the actual image file named 'cursor.png' here (PNG or SVG recommended).

@@ -1,0 +1,1 @@
+PLACEHOLDER: add the actual image file named 'logo-evora.png' here (PNG or SVG recommended).

@@ -1,0 +1,27 @@
+{
+  "name": "lsx-studio-hero",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.30.2"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.4",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "autoprefixer": "^10.0.0",
+    "postcss": "^8.0.0",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.0"
+  }
+}

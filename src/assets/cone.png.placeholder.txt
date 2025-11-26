@@ -1,0 +1,1 @@
+PLACEHOLDER: add the actual image file named 'cone.png' here (PNG or SVG recommended).

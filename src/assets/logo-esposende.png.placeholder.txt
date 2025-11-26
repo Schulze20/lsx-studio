@@ -1,0 +1,1 @@
+PLACEHOLDER: add the actual image file named 'logo-esposende.png' here (PNG or SVG recommended).
