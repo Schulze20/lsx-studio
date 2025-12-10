@@ -96,13 +96,15 @@ function VideoProject({ thumb, video, alt }: { thumb: string; video: string; alt
 }
 
 export default function Projects() {
+    const [flipped, setFlipped] = useState<number | null>(null);
+    
     const items = [
-        { src: projeto1Thumb, video: VIDEO_PROJETO1, alt: "Projeto 1", isVideo: true },
-        { src: projeto2Thumb, video: VIDEO_PROJETO2, alt: "Projeto 2", isVideo: true },
-        { src: projeto3Thumb, video: VIDEO_PROJETO3, alt: "Projeto 3", isVideo: true },
-        { src: proj4, alt: "Projeto 4", isVideo: false },
-        { src: proj5, alt: "Projeto 5", isVideo: false },
-        { src: proj6, alt: "Projeto 6", isVideo: false },
+        { src: projeto1Thumb, video: VIDEO_PROJETO1, alt: "Projeto 1", isVideo: true, title: "Projeto 1", description: "Descrição do projeto 1" },
+        { src: projeto2Thumb, video: VIDEO_PROJETO2, alt: "Projeto 2", isVideo: true, title: "Projeto 2", description: "Descrição do projeto 2" },
+        { src: projeto3Thumb, video: VIDEO_PROJETO3, alt: "Projeto 3", isVideo: true, title: "Projeto 3", description: "Descrição do projeto 3" },
+        { src: proj4, alt: "Projeto 4", isVideo: false, title: "Projeto 4", description: "Descrição do projeto 4" },
+        { src: proj5, alt: "Projeto 5", isVideo: false, title: "Projeto 5", description: "Descrição do projeto 5" },
+        { src: proj6, alt: "Projeto 6", isVideo: false, title: "Projeto 6", description: "Descrição do projeto 6" },
     ];
 
     return (
@@ -113,24 +115,56 @@ export default function Projects() {
 
             <div className="grid grid-cols-2 gap-4 md:gap-5 lg:gap-6 relative">
                 {items.map((item, index) => (
-                    <Link
-                        to={`/projeto/${index + 1}`}
+                    <div
                         key={item.alt}
+                        className={`relative w-full h-[400px] md:h-[500px] group cursor-pointer ${
+                            index % 2 === 1 ? 'md:-ml-8 lg:-ml-12' : ''
+                        }`}
+                        style={{
+                            perspective: "1000px",
+                        }}
+                        onMouseEnter={() => setFlipped(index)}
+                        onMouseLeave={() => setFlipped(null)}
                     >
-                        <div 
-                            className={`relative w-full h-[400px] md:h-[500px] group cursor-pointer ${
-                                index % 2 === 1 ? 'md:-ml-8 lg:-ml-12' : ''
-                            }`}
-                        >
-                            <div className="absolute inset-0 rounded-[32px] md:rounded-[40px] overflow-hidden ring-1 ring-white/10 shadow-[0_12px_36px_rgba(0,0,0,0.35)] transition-all duration-300 ease-out will-change-transform group-hover:-translate-y-8 md:group-hover:-translate-y-12 group-hover:ring-white/20 md:group-hover:ring-white/25 group-hover:shadow-[0_16px_44px,rgba(0,0,0,0.45)] md:group-hover:shadow-[0_18px_52px,rgba(0,0,0,0.5)]">
-                                {item.isVideo ? (
-                                    <VideoProject thumb={item.src} video={item.video!} alt={item.alt} />
-                                ) : (
-                                    <ParallaxImage src={item.src} alt={item.alt} intensity={6} />
-                                )}
+                        <Link to={`/projeto/${index + 1}`} className="block w-full h-full">
+                            <div
+                                className="absolute inset-0 rounded-[32px] md:rounded-[40px] overflow-hidden ring-1 ring-white/10 shadow-[0_12px_36px_rgba(0,0,0,0.35)] transition-all duration-300 ease-out will-change-transform group-hover:-translate-y-8 md:group-hover:-translate-y-12 group-hover:ring-white/20 md:group-hover:ring-white/25 group-hover:shadow-[0_16px_44px,rgba(0,0,0,0.45)] md:group-hover:shadow-[0_18px_52px,rgba(0,0,0,0.5)]"
+                                style={{
+                                    transformStyle: "preserve-3d",
+                                    transform: flipped === index ? "rotateY(180deg)" : "rotateY(0deg)",
+                                    transition: "transform 600ms ease-out",
+                                }}
+                            >
+                                {/* Front face */}
+                                <div
+                                    style={{
+                                        backfaceVisibility: "hidden",
+                                        WebkitBackfaceVisibility: "hidden",
+                                    }}
+                                >
+                                    {item.isVideo ? (
+                                        <VideoProject thumb={item.src} video={item.video!} alt={item.alt} />
+                                    ) : (
+                                        <ParallaxImage src={item.src} alt={item.alt} intensity={6} />
+                                    )}
+                                </div>
+
+                                {/* Back face */}
+                                <div
+                                    className="absolute inset-0 bg-gradient-to-br from-purple-600 to-purple-900 flex flex-col items-center justify-center p-6"
+                                    style={{
+                                        backfaceVisibility: "hidden",
+                                        WebkitBackfaceVisibility: "hidden",
+                                        transform: "rotateY(180deg)",
+                                    }}
+                                >
+                                    <h3 className="text-white text-xl md:text-2xl font-bold mb-4 text-center">{item.title}</h3>
+                                    <p className="text-gray-100 text-center text-sm md:text-base mb-6">{item.description}</p>
+                                    <span className="text-white font-semibold text-lg">Ver Detalhes →</span>
+                                </div>
                             </div>
-                        </div>
-                    </Link>
+                        </Link>
+                    </div>
                 ))}
             </div>
 
