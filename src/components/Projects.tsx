@@ -7,11 +7,13 @@ import proj4 from "../assets/project 4.png";
 import proj5 from "../assets/project 5.png";
 import proj6 from "../assets/project 6.png";
 import projeto1Thumb from "../assets/projeto1.png";
-import projeto1Video from "../assets/projeto1m.mp4";
 import projeto2Thumb from "../assets/projeto2.png";
-import projeto2Video from "../assets/projeto2v.mp4";
 import projeto3Thumb from "../assets/projeto3.png";
-import projeto3Video from "../assets/projeto3v.mp4";
+
+// Videos are hosted on Cloudinary - add URLs to your .env file
+const VIDEO_PROJETO1 = import.meta.env.VITE_VIDEO_PROJETO1 || "";
+const VIDEO_PROJETO2 = import.meta.env.VITE_VIDEO_PROJETO2 || "";
+const VIDEO_PROJETO3 = import.meta.env.VITE_VIDEO_PROJETO3 || "";
 
 type ProjectImageProps = { src: string; alt: string };
 
@@ -95,9 +97,9 @@ function VideoProject({ thumb, video, alt }: { thumb: string; video: string; alt
 
 export default function Projects() {
     const items = [
-        { src: projeto1Thumb, video: projeto1Video, alt: "Projeto 1", isVideo: true },
-        { src: projeto2Thumb, video: projeto2Video, alt: "Projeto 2", isVideo: true },
-        { src: projeto3Thumb, video: projeto3Video, alt: "Projeto 3", isVideo: true },
+        { src: projeto1Thumb, video: VIDEO_PROJETO1, alt: "Projeto 1", isVideo: true },
+        { src: projeto2Thumb, video: VIDEO_PROJETO2, alt: "Projeto 2", isVideo: true },
+        { src: projeto3Thumb, video: VIDEO_PROJETO3, alt: "Projeto 3", isVideo: true },
         { src: proj4, alt: "Projeto 4", isVideo: false },
         { src: proj5, alt: "Projeto 5", isVideo: false },
         { src: proj6, alt: "Projeto 6", isVideo: false },

@@ -1,11 +1,13 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import projeto1Video from "../assets/projeto1m.mp4";
 import projeto1Thumb from "../assets/projeto1.png";
-import projeto2Video from "../assets/projeto2v.mp4";
 import projeto2Thumb from "../assets/projeto2.png";
-import projeto3Video from "../assets/projeto3v.mp4";
 import projeto3Thumb from "../assets/projeto3.png";
+
+// Videos are hosted on Cloudinary - add URLs to your .env file
+const VIDEO_PROJETO1 = import.meta.env.VITE_VIDEO_PROJETO1 || "";
+const VIDEO_PROJETO2 = import.meta.env.VITE_VIDEO_PROJETO2 || "";
+const VIDEO_PROJETO3 = import.meta.env.VITE_VIDEO_PROJETO3 || "";
 
 export const ProjectDetail: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -15,7 +17,7 @@ export const ProjectDetail: React.FC = () => {
         "1": {
             title: "Projeto 1",
             description: "Descrição detalhada do Projeto 1. Adiciona aqui mais informações sobre o projeto, objetivos, processo criativo e resultados.",
-            video: projeto1Video,
+            video: VIDEO_PROJETO1,
             thumb: projeto1Thumb,
             category: "Motion Design",
             year: "2024",
@@ -24,7 +26,7 @@ export const ProjectDetail: React.FC = () => {
         "2": {
             title: "Projeto 2",
             description: "Descrição detalhada do Projeto 2. Adiciona aqui mais informações sobre o projeto, objetivos, processo criativo e resultados.",
-            video: projeto2Video,
+            video: VIDEO_PROJETO2,
             thumb: projeto2Thumb,
             category: "Motion Design",
             year: "2024",
@@ -33,7 +35,7 @@ export const ProjectDetail: React.FC = () => {
         "3": {
             title: "Projeto 3",
             description: "Descrição detalhada do Projeto 3. Adiciona aqui mais informações sobre o projeto, objetivos, processo criativo e resultados.",
-            video: projeto3Video,
+            video: VIDEO_PROJETO3,
             thumb: projeto3Thumb,
             category: "Motion Design",
             year: "2024",
