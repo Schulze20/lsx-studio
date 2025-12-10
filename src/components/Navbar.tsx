@@ -5,6 +5,14 @@ import logoPrincipal from "../assets/logo-principal.png";
 export const Navbar: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <header className="w-full fixed top-0 left-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -15,9 +23,9 @@ export const Navbar: React.FC = () => {
 
         {/* Links - hidden on small screens */}
         <nav className="hidden md:flex items-center gap-8 text-sm text-gray-200">
-          <a href="#projetos" className="hover:text-white transition">Projetos</a>
-          <a href="#sobre-nos" className="hover:text-white transition">Sobre</a>
-          <a href="#contactos" className="hover:text-white transition">Contactos</a>
+          <a href="#projetos" onClick={(e) => handleNavClick(e, "projetos")} className="hover:text-white transition">Projetos</a>
+          <a href="#sobre-nos" onClick={(e) => handleNavClick(e, "sobre-nos")} className="hover:text-white transition">Sobre</a>
+          <a href="#contactos" onClick={(e) => handleNavClick(e, "contactos")} className="hover:text-white transition">Contactos</a>
         </nav>
 
         {/* CTA */}
