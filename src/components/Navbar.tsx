@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ContactModal } from "./ContactModal";
+import logoPrincipal from "../assets/logo-principal.png";
 
 export const Navbar: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -9,7 +10,7 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <div>
-          <img src="/assets/logo-principal.png" alt="LSX Studio" className="h-16 w-auto" />
+          <img src={logoPrincipal} alt="LSX Studio" className="h-16 w-auto" />
         </div>
 
         {/* Links - hidden on small screens */}

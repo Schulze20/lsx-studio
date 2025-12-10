@@ -1,4 +1,9 @@
 import React from "react";
+import starSmall from "../assets/star-small.png";
+import cone from "../assets/cone.png";
+import cube from "../assets/cube.png";
+import cursor from "../assets/cursor.png";
+import starLarge from "../assets/star-large.png";
 
 export const Hero: React.FC = () => {
   return (
@@ -8,31 +13,31 @@ export const Hero: React.FC = () => {
 
       {/* 3D shapes */}
       <img
-        src="/assets/star-small.png"
+        src={starSmall}
         alt="star-small"
         className="hidden lg:block absolute shape-float drop-shadow-2xl z-30 pointer-events-auto"
         style={{ left: "173px", top: "248px", width: "200px", height: "200px", transform: "rotate(0deg)" }}
       />
       <img
-        src="/assets/cone.png"
+        src={cone}
         alt="cone"
         className="absolute shape-float drop-shadow-2xl z-30 pointer-events-auto"
         style={{ left: "503px", top: "161px", width: "186.41px", height: "186.41px", transform: "rotate(103.12deg)" }}
       />
       <img
-        src="/assets/cube.png"
+        src={cube}
         alt="cube"
         className="absolute shape-float drop-shadow-2xl lg:opacity-90 z-30 pointer-events-auto"
         style={{ left: "399px", top: "410px", width: "438.02px", height: "437.43px", transform: "rotate(-21.9deg)" }}
       />
       <img
-        src="/assets/cursor.png"
+        src={cursor}
         alt="cursor"
         className="absolute opacity-90 shape-float z-30 pointer-events-auto"
         style={{ left: "140px", top: "693px", width: "157.96px", height: "156.74px", transform: "rotate(90deg)" }}
       />
       <img
-        src="/assets/star-large.png"
+        src={starLarge}
         alt="star-large"
         className="hidden xl:block absolute shape-float drop-shadow-2xl z-30 pointer-events-auto"
         style={{ left: "1250px", top: "103px", width: "742.45px", height: "536.09px", transform: "rotate(50deg)" }}
