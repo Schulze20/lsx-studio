@@ -143,57 +143,68 @@ export function Workflow() {
 
             <div ref={containerRef} className={`relative mx-auto w-full max-w-5xl text-white`}>
                 {/* Card */}
-                <div className={`relative rounded-[36px] md:rounded-[48px] bg-gradient-to-br from-white/8 to-white/3 border border-white/20 ${accent.ring} overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.4)] backdrop-blur-sm transition-all duration-500 hover:border-white/30 hover:shadow-[0_30px_80px_rgba(139,92,246,0.4)] hover:scale-[1.02] hover:-translate-y-1`}>
+                <div className={`relative rounded-[40px] md:rounded-[56px] bg-gradient-to-br from-white/10 to-white/5 border border-white/20 ${accent.ring} overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.5)] backdrop-blur-lg transition-all duration-500 hover:border-white/40 hover:shadow-[0_35px_100px_rgba(139,92,246,0.5)] hover:scale-[1.03] hover:-translate-y-2`}>
                     {/* Animated background gradient */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${accent.bar} opacity-5 animate-pulse`} />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${accent.bar} opacity-8 animate-pulse`} />
                     
                     {/* Accent bar - gradient */}
-                    <div className={`absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b ${accent.bar} shadow-[0_0_20px_rgba(139,92,246,0.5)] transition-all duration-500`} />
+                    <div className={`absolute left-0 top-0 h-full w-2 bg-gradient-to-b ${accent.bar} shadow-[0_0_30px_rgba(139,92,246,0.6)] transition-all duration-500`} />
 
                     {/* Header section */}
-                    <div className="relative px-8 md:px-12 pt-8 md:pt-10 pb-4">
+                    <div className="relative px-8 md:px-12 pt-10 md:pt-12 pb-6">
                         <div className="flex items-center gap-4 mb-2 group">
-                            <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${accent.bar} flex items-center justify-center font-bold text-lg shadow-[0_10px_25px_rgba(139,92,246,0.3)] transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_15px_40px_rgba(139,92,246,0.5)]`}>
+                            <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${accent.bar} flex items-center justify-center font-bold text-xl shadow-[0_12px_30px_rgba(139,92,246,0.4)] transition-all duration-300 group-hover:scale-125 group-hover:shadow-[0_18px_50px_rgba(139,92,246,0.6)]`}>
                                 {active + 1}
                             </div>
-                            <h3 className="text-2xl md:text-3xl font-bold text-white transition-all duration-300 group-hover:text-violet-300">{step.title}</h3>
+                            <h3 className="text-2xl md:text-4xl font-bold text-white transition-all duration-300 group-hover:text-violet-200">{step.title}</h3>
                         </div>
                     </div>
 
-                    {/* Content area with step intro + bullets */}
-                    <div className="relative mx-8 md:mx-12 mb-8 md:mb-10 animate-fadeIn">
-                        <div className="rounded-[24px] bg-white/5 border border-white/10 backdrop-blur-sm p-8 md:p-10 min-h-[240px] md:min-h-[320px] flex flex-col justify-between transition-all duration-300 hover:bg-white/8 hover:border-white/20">
+                    {/* Content area with step intro + bullets + Navigation Arrows */}
+                    <div className="relative px-8 md:px-12 pb-10 md:pb-12 animate-fadeIn flex items-stretch gap-6">
+                        {/* Left Arrow */}
+                        <button 
+                            aria-label="Anterior" 
+                            onClick={() => go(-1)} 
+                            className="flex-shrink-0 self-center group p-3 rounded-full bg-white/10 border border-white/20 hover:bg-violet-600/40 hover:border-violet-500/60 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(139,92,246,0.4)] hover:scale-130 active:scale-95"
+                        >
+                            <ArrowIcon dir="left" />
+                        </button>
+
+                        {/* Content Box */}
+                        <div className="flex-1 rounded-[28px] bg-white/8 border border-white/15 backdrop-blur-sm p-8 md:p-10 min-h-[280px] md:min-h-[360px] flex flex-col justify-between transition-all duration-300 hover:bg-white/12 hover:border-white/25">
                             <div className="max-w-[70ch] overflow-y-auto">
                                 {step.intro && (
-                                    <p className={`text-${accent.dot.split('-')[1]}-300 uppercase tracking-widest text-xs md:text-sm font-bold mb-6 animate-slideInUp`}>
+                                    <p className={`text-violet-300 uppercase tracking-widest text-xs md:text-sm font-bold mb-8 animate-slideInUp`}>
                                         ✨ {step.intro}
                                     </p>
                                 )}
-                                <ul className="text-gray-100 text-sm md:text-base space-y-3">
+                                <ul className="text-gray-100 text-sm md:text-base space-y-4">
                                     {step.bullets.map((b, i) => (
                                         <li key={i} className="flex gap-3 items-start animate-slideInUp transition-all duration-300 hover:translate-x-2" style={{ animationDelay: `${i * 50}ms` }}>
-                                            <span className={`w-1.5 h-1.5 rounded-full ${accent.dot} mt-2 flex-shrink-0 transition-all duration-300 hover:scale-150`} />
+                                            <span className={`w-2 h-2 rounded-full ${accent.dot} mt-2.5 flex-shrink-0 transition-all duration-300 hover:scale-150`} />
                                             <span className="transition-colors duration-300 hover:text-white">{b}</span>
                                         </li>
                                     ))}
                                 </ul>
                             </div>
                         </div>
+
+                        {/* Right Arrow */}
+                        <button 
+                            aria-label="Seguinte" 
+                            onClick={() => go(1)} 
+                            className="flex-shrink-0 self-center group p-3 rounded-full bg-white/10 border border-white/20 hover:bg-violet-600/40 hover:border-violet-500/60 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(139,92,246,0.4)] hover:scale-130 active:scale-95"
+                        >
+                            <ArrowIcon dir="right" />
+                        </button>
                     </div>
                 </div>
 
-                {/* Navigation Footer */}
-                <div className="mt-8 flex items-center justify-center gap-4 animate-slideInUp">
-                    <button 
-                        aria-label="Anterior" 
-                        onClick={() => go(-1)} 
-                        className="group p-3 rounded-full bg-white/5 border border-white/10 hover:bg-violet-600/30 hover:border-violet-500/50 transition-all duration-300 hover:shadow-[0_10px_25px_rgba(139,92,246,0.3)] hover:scale-125 hover:-translate-y-1 active:scale-95"
-                    >
-                        <ArrowIcon dir="left" />
-                    </button>
-
+                {/* Navigation Footer - Dots only */}
+                <div className="mt-10 flex items-center justify-center gap-3 animate-slideInUp">
                     {/* Dots */}
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2.5">
                         {STEPS.map((_, i) => (
                             <button 
                                 key={i} 
@@ -201,20 +212,12 @@ export function Workflow() {
                                 onClick={() => { setActive(i); }} 
                                 className={`transition-all duration-300 cursor-pointer ${
                                     i === active 
-                                        ? `w-8 h-3 rounded-full bg-gradient-to-r ${ACCENTS[i % ACCENTS.length].bar} shadow-[0_10px_25px_rgba(139,92,246,0.5)] scale-110` 
-                                        : "w-2.5 h-2.5 rounded-full bg-white/20 hover:bg-white/40 hover:scale-125"
+                                        ? `w-10 h-3 rounded-full bg-gradient-to-r ${ACCENTS[i % ACCENTS.length].bar} shadow-[0_10px_25px_rgba(139,92,246,0.5)] scale-100` 
+                                        : "w-2.5 h-2.5 rounded-full bg-white/20 hover:bg-white/50 hover:scale-150"
                                 }`} 
                             />
                         ))}
                     </div>
-
-                    <button 
-                        aria-label="Seguinte" 
-                        onClick={() => go(1)} 
-                        className="group p-3 rounded-full bg-white/5 border border-white/10 hover:bg-violet-600/30 hover:border-violet-500/50 transition-all duration-300 hover:shadow-[0_10px_25px_rgba(139,92,246,0.3)] hover:scale-125 hover:-translate-y-1 active:scale-95"
-                    >
-                        <ArrowIcon dir="right" />
-                    </button>
                 </div>
             </div>
         </section>
