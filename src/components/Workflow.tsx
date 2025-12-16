@@ -141,9 +141,9 @@ export function Workflow() {
                 </div>
             </div>
 
-            <div ref={containerRef} className={`relative mx-auto w-full max-w-5xl text-white`}>
+            <div ref={containerRef} className={`relative mx-auto w-full max-w-6xl text-white`}>
                 {/* Card */}
-                <div className={`relative rounded-[40px] md:rounded-[56px] bg-gradient-to-br from-white/10 to-white/5 border border-white/20 ${accent.ring} overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.5)] backdrop-blur-lg transition-all duration-500 hover:border-white/40 hover:shadow-[0_35px_100px_rgba(139,92,246,0.5)] hover:scale-[1.03] hover:-translate-y-2`}>
+                <div className={`relative rounded-[44px] md:rounded-[64px] bg-gradient-to-br from-white/10 to-white/5 border border-white/20 ${accent.ring} overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.6)] backdrop-blur-lg transition-all duration-500 hover:border-white/40 hover:shadow-[0_40px_120px_rgba(139,92,246,0.6)] hover:scale-[1.04] hover:-translate-y-3`}>
                     {/* Animated background gradient */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${accent.bar} opacity-8 animate-pulse`} />
                     
@@ -161,29 +161,29 @@ export function Workflow() {
                     </div>
 
                     {/* Content area with step intro + bullets + Navigation Arrows */}
-                    <div className="relative px-8 md:px-12 pb-10 md:pb-12 animate-fadeIn flex items-stretch gap-6">
+                    <div className="relative px-8 md:px-14 lg:px-16 py-12 md:py-16 lg:py-20 animate-fadeIn flex items-stretch gap-8">
                         {/* Left Arrow */}
                         <button 
                             aria-label="Anterior" 
                             onClick={() => go(-1)} 
-                            className="flex-shrink-0 self-center group p-3 rounded-full bg-white/10 border border-white/20 hover:bg-violet-600/40 hover:border-violet-500/60 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(139,92,246,0.4)] hover:scale-130 active:scale-95"
+                            className="flex-shrink-0 self-center group p-4 md:p-5 rounded-full bg-white/10 border border-white/20 hover:bg-violet-600/40 hover:border-violet-500/60 transition-all duration-300 hover:shadow-[0_12px_35px_rgba(139,92,246,0.5)] hover:scale-150 active:scale-95"
                         >
                             <ArrowIcon dir="left" />
                         </button>
 
                         {/* Content Box */}
-                        <div className="flex-1 rounded-[28px] bg-white/8 border border-white/15 backdrop-blur-sm p-8 md:p-10 min-h-[280px] md:min-h-[360px] flex flex-col justify-between transition-all duration-300 hover:bg-white/12 hover:border-white/25">
-                            <div className="max-w-[70ch] overflow-y-auto">
+                        <div className="flex-1 rounded-[32px] bg-white/8 border border-white/15 backdrop-blur-sm p-10 md:p-14 lg:p-16 min-h-[320px] md:min-h-[420px] lg:min-h-[480px] flex flex-col justify-between transition-all duration-300 hover:bg-white/12 hover:border-white/25">
+                            <div className="max-w-[80ch] overflow-y-auto">
                                 {step.intro && (
-                                    <p className={`text-violet-300 uppercase tracking-widest text-xs md:text-sm font-bold mb-8 animate-slideInUp`}>
+                                    <p className={`text-violet-300 uppercase tracking-widest text-sm md:text-base font-bold mb-10 animate-slideInUp`}>
                                         ✨ {step.intro}
                                     </p>
                                 )}
-                                <ul className="text-gray-100 text-sm md:text-base space-y-4">
+                                <ul className="text-gray-100 text-base md:text-lg space-y-5">
                                     {step.bullets.map((b, i) => (
-                                        <li key={i} className="flex gap-3 items-start animate-slideInUp transition-all duration-300 hover:translate-x-2" style={{ animationDelay: `${i * 50}ms` }}>
-                                            <span className={`w-2 h-2 rounded-full ${accent.dot} mt-2.5 flex-shrink-0 transition-all duration-300 hover:scale-150`} />
-                                            <span className="transition-colors duration-300 hover:text-white">{b}</span>
+                                        <li key={i} className="flex gap-4 items-start animate-slideInUp transition-all duration-300 hover:translate-x-3" style={{ animationDelay: `${i * 50}ms` }}>
+                                            <span className={`w-2.5 h-2.5 rounded-full ${accent.dot} mt-3 flex-shrink-0 transition-all duration-300 hover:scale-150`} />
+                                            <span className="transition-colors duration-300 hover:text-white leading-relaxed">{b}</span>
                                         </li>
                                     ))}
                                 </ul>
@@ -194,29 +194,10 @@ export function Workflow() {
                         <button 
                             aria-label="Seguinte" 
                             onClick={() => go(1)} 
-                            className="flex-shrink-0 self-center group p-3 rounded-full bg-white/10 border border-white/20 hover:bg-violet-600/40 hover:border-violet-500/60 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(139,92,246,0.4)] hover:scale-130 active:scale-95"
+                            className="flex-shrink-0 self-center group p-4 md:p-5 rounded-full bg-white/10 border border-white/20 hover:bg-violet-600/40 hover:border-violet-500/60 transition-all duration-300 hover:shadow-[0_12px_35px_rgba(139,92,246,0.5)] hover:scale-150 active:scale-95"
                         >
                             <ArrowIcon dir="right" />
                         </button>
-                    </div>
-                </div>
-
-                {/* Navigation Footer - Dots only */}
-                <div className="mt-10 flex items-center justify-center gap-3 animate-slideInUp">
-                    {/* Dots */}
-                    <div className="flex items-center gap-2.5">
-                        {STEPS.map((_, i) => (
-                            <button 
-                                key={i} 
-                                aria-label={`Ir para passo ${i + 1}`} 
-                                onClick={() => { setActive(i); }} 
-                                className={`transition-all duration-300 cursor-pointer ${
-                                    i === active 
-                                        ? `w-10 h-3 rounded-full bg-gradient-to-r ${ACCENTS[i % ACCENTS.length].bar} shadow-[0_10px_25px_rgba(139,92,246,0.5)] scale-100` 
-                                        : "w-2.5 h-2.5 rounded-full bg-white/20 hover:bg-white/50 hover:scale-150"
-                                }`} 
-                            />
-                        ))}
                     </div>
                 </div>
             </div>
