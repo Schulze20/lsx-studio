@@ -1,5 +1,6 @@
 import React from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { Preloader } from "./components/Preloader";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { LogoCarousel } from "./components/LogoCarousel";
@@ -32,6 +33,7 @@ function Home() {
 function App() {
   return (
     <Router>
+      <Preloader />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
