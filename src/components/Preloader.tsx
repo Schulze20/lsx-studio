@@ -184,21 +184,26 @@ export const Preloader: React.FC = () => {
                     height: 100%;
                     animation: spiral-rotate 20s linear infinite;
                     background-image:
-                        radial-gradient(2px 2px at 50% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
-                        radial-gradient(2px 2px at 55% 45%, rgba(255,255,255,0.8), rgba(255,255,255,0)),
-                        radial-gradient(2px 2px at 60% 55%, rgba(255,255,255,0.7), rgba(255,255,255,0)),
-                        radial-gradient(2px 2px at 52% 62%, rgba(255,255,255,0.8), rgba(255,255,255,0)),
-                        radial-gradient(2px 2px at 42% 55%, rgba(255,255,255,0.7), rgba(255,255,255,0)),
-                        radial-gradient(2px 2px at 65% 50%, rgba(255,255,255,0.6), rgba(255,255,255,0)),
-                        radial-gradient(2px 2px at 48% 35%, rgba(255,255,255,0.8), rgba(255,255,255,0)),
-                        radial-gradient(2px 2px at 70% 65%, rgba(255,255,255,0.7), rgba(255,255,255,0)),
-                        radial-gradient(2px 2px at 35% 60%, rgba(255,255,255,0.6), rgba(255,255,255,0)),
-                        radial-gradient(2px 2px at 75% 40%, rgba(255,255,255,0.8), rgba(255,255,255,0)),
-                        radial-gradient(2px 2px at 30% 45%, rgba(255,255,255,0.7), rgba(255,255,255,0)),
-                        radial-gradient(2px 2px at 78% 58%, rgba(255,255,255,0.6), rgba(255,255,255,0)),
-                        radial-gradient(2px 2px at 45% 25%, rgba(255,255,255,0.8), rgba(255,255,255,0)),
-                        radial-gradient(2px 2px at 68% 75%, rgba(255,255,255,0.7), rgba(255,255,255,0)),
-                        radial-gradient(2px 2px at 25% 50%, rgba(255,255,255,0.6), rgba(255,255,255,0));
+                        radial-gradient(3px 3px at 50% 50%, rgba(168, 85, 247, 1), rgba(168, 85, 247, 0.3)),
+                        radial-gradient(2.5px 2.5px at 55% 45%, rgba(186, 85, 211, 1), rgba(186, 85, 211, 0.3)),
+                        radial-gradient(3px 3px at 60% 55%, rgba(168, 85, 247, 0.9), rgba(168, 85, 247, 0.2)),
+                        radial-gradient(2.5px 2.5px at 52% 62%, rgba(186, 85, 211, 0.9), rgba(186, 85, 211, 0.2)),
+                        radial-gradient(3px 3px at 42% 55%, rgba(168, 85, 247, 1), rgba(168, 85, 247, 0.3)),
+                        radial-gradient(2px 2px at 65% 50%, rgba(186, 85, 211, 0.8), rgba(186, 85, 211, 0.1)),
+                        radial-gradient(3px 3px at 48% 35%, rgba(168, 85, 247, 0.9), rgba(168, 85, 247, 0.2)),
+                        radial-gradient(2.5px 2.5px at 70% 65%, rgba(186, 85, 211, 1), rgba(186, 85, 211, 0.3)),
+                        radial-gradient(3px 3px at 35% 60%, rgba(168, 85, 247, 0.8), rgba(168, 85, 247, 0.1)),
+                        radial-gradient(2.5px 2.5px at 75% 40%, rgba(186, 85, 211, 0.9), rgba(186, 85, 211, 0.2)),
+                        radial-gradient(3px 3px at 30% 45%, rgba(168, 85, 247, 1), rgba(168, 85, 247, 0.3)),
+                        radial-gradient(2px 2px at 78% 58%, rgba(186, 85, 211, 0.8), rgba(186, 85, 211, 0.1)),
+                        radial-gradient(3px 3px at 45% 25%, rgba(168, 85, 247, 0.9), rgba(168, 85, 247, 0.2)),
+                        radial-gradient(2.5px 2.5px at 68% 75%, rgba(186, 85, 211, 1), rgba(186, 85, 211, 0.3)),
+                        radial-gradient(3px 3px at 25% 50%, rgba(168, 85, 247, 0.8), rgba(168, 85, 247, 0.1)),
+                        radial-gradient(2.5px 2.5px at 80% 30%, rgba(186, 85, 211, 0.9), rgba(186, 85, 211, 0.2)),
+                        radial-gradient(3px 3px at 20% 70%, rgba(168, 85, 247, 1), rgba(168, 85, 247, 0.3)),
+                        radial-gradient(2.5px 2.5px at 40% 80%, rgba(186, 85, 211, 0.8), rgba(186, 85, 211, 0.1)),
+                        radial-gradient(3px 3px at 72% 20%, rgba(168, 85, 247, 0.9), rgba(168, 85, 247, 0.2)),
+                        radial-gradient(2px 2px at 15% 35%, rgba(186, 85, 211, 1), rgba(186, 85, 211, 0.3));
                     background-size: 100% 100%;
                     background-position: 0 0;
                     background-repeat: no-repeat;
